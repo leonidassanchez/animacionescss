@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+body {
+  background-image: url("https://img.freepik.com/foto-gratis/fondo-pared-textura-hormigon-azul-grunge-vintage-vineta_1258-28373.jpg?w=1800&t=st=1708277392~exp=1708277992~hmac=b7279400eedf1e315bf021192c334c741bcdd24db0d2161bc2e851170d176859");
+  background-size: 100vw 300vh;
+  background-repeat: no-repeat;
+}
+.sombramobile {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+/*Estilo encabezado*/
+header {
+  grid-area: navbar;
+  width: 100%;
+  height: 100px;
+  position: static;
+  top: 0;
+  left: 0;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .btn-menu,
+.logo {
+  float: left;
+  line-height: 100px;
+}
+.container .btn-menu label {
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+}
+.logo h1 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 22px;
+  margin-left: 10px;
+}
+.container .menu {
+  float: right;
+  line-height: 100px;
+}
+.container .menu a {
+  display: inline-block;
+  padding: 15px;
+  line-height: normal;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  font-size: 15px;
+  margin-right: 5px;
+}
+.container .menu a:hover {
+  border-bottom: 2px solid #c7c7c7;
+  padding-bottom: 5px;
+}
+/*estilo galería de imágenes*/
+.galeria {
+  grid-area: imagenes;
+  height: auto;
+  width: auto;
+  padding: 10px;
+}
+.galeria h2 {
+  color: azure;
+  text-align: center;
+  font-size: 20px;
+}
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+}
+.gallery img {
+  width: 150px;
+  gap: 20px;
+}
+.gallery ul {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  list-style: none;
+  flex-direction: column;
+}
+.gallery li {
+  display: flex;
+  flex-wrap: wrap;
+}
+.paginacion {
+  display: flex;
+  justify-content: center;
+}
+.cardcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cardcontainer img {
+  width: 150px;
+  height: 100%;
+  padding: 10px;
+  transition: all 3s;
+}
+.cardcontainer img:hover {
+  background-color: #fff;
+}
+.card {
+  margin: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  align-items: center;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  transition: all 400ms ease;
+  vertical-align: middle;
+}
+.card:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3%);
+}
+
+footer {
+  grid-area: pie-de-pagina;
+  background: #0a12ab;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/*Menú lateral pc*/
+#btn-menu {
+  display: none;
+}
+.container-menu {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+#btn-menu:checked ~ .container-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.cont-menu {
+  width: 100%;
+  max-width: 250px;
+  background: #1c1c1c;
+  height: 100vh;
+  position: relative;
+  transition: all 500ms ease;
+  transform: translateX(-100%);
+}
+#btn-menu:checked ~ .container-menu .cont-menu {
+  transform: translateX(0%);
+}
+.cont-menu nav {
+  transform: translateY(15%);
+}
+.cont-menu nav a {
+  display: block;
+  text-decoration: none;
+  padding: 20px;
+  color: #c7c7c7;
+  border-left: 5px solid transparent;
+  transition: all 400ms ease;
+}
+.cont-menu nav a:hover {
+  border-left: 5px solid #c7c7c7;
+  background: #1f1f1f;
+}
+.cont-menu label {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+}
+.menu {
+  display: none;
+}
+/*menu lateral mobile*/
+/*para layout MOBILE*/
+.grid-container {
+  width: 100%;
+  height: 200vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 90px 1fr 100px;
+  grid-template-areas:
+    "navbar"
+    "imagenes"
+    "imagenes"
+    "pie-de-pagina";
+}
+/*para layout PC*/
+@media (min-width: 576px) {
+  .menu {
+    display: flex;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media (min-width: 768px) {
+  .menu {
+    display: flex;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
